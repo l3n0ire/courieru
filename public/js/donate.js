@@ -1,5 +1,6 @@
 const refreshButton = document.getElementById('refresh');
-const donationElement =document.getElementById('row')
+const donationElement = document.getElementById('row')
+const updateElement = document.getElementById('update');
 async function refresh(){
     try{
         
@@ -15,6 +16,13 @@ async function refresh(){
         console.log(data2)
 
         donationElement.innerHTML = '';
+        updateElement.innerHTML = '';
+
+        var date = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
+        var time = document.createTextNode("Updated as of " + date);
+        updateElement.appendChild(time);
+
+       
 
         data2.data.map(item=>{
             
