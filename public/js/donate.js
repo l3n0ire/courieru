@@ -14,6 +14,8 @@ async function refresh(){
         const data2 = await data
         console.log(data2)
 
+        donationElement.innerHTML = '';
+
         data2.data.map(item=>{
             
             var card_box = document.createElement("DIV");
