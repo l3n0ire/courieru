@@ -101,4 +101,9 @@ body {
   {
     height: 50vh;
   }
+
+  .accordionContainer
+  {
+      height: 100vh;
+  }
   
