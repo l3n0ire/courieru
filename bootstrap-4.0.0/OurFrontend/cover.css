@@ -9,6 +9,16 @@ a:hover {
   color: #fff;
 }
 
+#myVideo {
+  position: fixed;
+  object-fit: fill;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
 /* Custom default button */
 .btn-secondary,
 .btn-secondary:hover,
@@ -27,7 +37,9 @@ a:hover {
 html,
 body {
   height: 100%;
+  /*
   background-image: url("Assets/CoverImage.jpg");
+  */
 }
 
 body {
