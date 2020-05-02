@@ -7,67 +7,165 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    </head>
-        <body  style="padding-top: 65px">
+        <body class="bg-light" style="padding-top: 65px">
             <header>
-                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                  <a class="navbar-brand" href="#">CourierU</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav mr-auto">
-                      <li class="nav-item">
-                        <a class="nav-link" href="/index.html">Home </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/add.html">Register </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/courier.html">Courier</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/request.html">Request</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/donate.html">Donate </a>
-                      </li>
-                    </ul>
-                </nav>
-              </header>
-        <div class="container my-3">
-            <h1 class="display-4 text-center"></i>
-            Add Store</h1>
-            <form id='user-form' class= "mb-4">
-                <div class='form-group'>
-                    <p><b>Required Info</b></p>
-                    <label>Username</label>
-                    <input type='text' id='username' class='form-control'></input>
-
-                    <label>Password <address></address></label>
-                    <input type='text' id='password' class='form-control'></input>
-
-                    <label>Role</label>
-                    <input type='text' id='role' class='form-control'></input>
-
-                    <label>Address</label>
-                    <input type='text' id='address' class='form-control'></input>
-                </div>
-                <div class='form-group'>
-                    <p><b>Contact Info</b></p>
-                    <label>Full Name</label>
-                    <input type='text' id='fullName' class='form-control'></input>
-                    <label>phonenumber</label>
-                    <input type='text' id='phonenumber' class='form-control'></input>
-                    <label>email</label>
-                    <input type='text' id='email' class='form-control'></input>
-                </div>
-
-                <button type='submit' class='btn btn-primary'>Submit</button>
-                <a href="index.html" class='btn btn-secondary'>Back</a>
-
-            </form>
-        </div>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+              <a class="navbar-brand" href="#">CourierU</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/index.html">Home </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/add.html">Register </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/courier.html">Courier</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/request.html">Request</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/donate.html">Donate </a>
+                  </li>
+                </ul>
+            </nav>
+          </header>
+      
+          <div class="container my-4">
+              <div class="py-5 left">
+                <h4 class="mb-3"><b>Contact Information</b></h4>
+                <form id="user-form" class="needs-validation" novalidate>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="firstName">First name</label>
+                      <input type="text" class="form-control" id="firstName" placeholder="First Name" value="" required>
+                      <div class="invalid-feedback">
+                        Valid first name is required.
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="lastName">Last name</label>
+                      <input type="text" class="form-control" id="lastName" placeholder="Last Name" value="" required>
+                      <div class="invalid-feedback">
+                        Valid last name is required.
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                    <div class="invalid-feedback">
+                      Please enter a valid email address for shipping updates.
+                    </div>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label for="email">Phone Number</label>
+                    <input type="email" class="form-control" id="phonenumber" placeholder="1234567890" required>
+                    <div class="invalid-feedback">
+                      Please enter a valid phone number.
+                    </div>
+                  </div>
+      
+                  <hr class="mb-4">
+                  <h4 class="mb-3"><b>Site Information</b></h4>
+      
+                  <div class="mb-3">
+                    <label for="username">Username</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control" id="username" placeholder="Username" required>
+                      <div class="invalid-feedback" style="width: 100%;">
+                        Your username is required.
+                      </div>
+                    </div>
+                  </div>
+      
+      
+                  <div class="mb-3">
+                    <label for="email">Password</label>
+                    <input type="email" class="form-control" id="password" placeholder="Password" required>
+                    <div class="invalid-feedback">
+                      Please enter a valid password.
+                    </div>
+                  </div>
+      
+                  <div class="mb-3">
+                    <label for="email">Role</label>
+                    <select class="custom-select d-block w-100" id="role" required>
+                      <option value="">Choose...</option>
+                      <option value='courier'>Courier</option>
+                      <option value='recipient'>Recipient</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please enter a valid email address for shipping updates.
+                    </div>
+                  </div>
+      
+                  <div class="mb-3">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                    <div class="invalid-feedback">
+                      Please enter your shipping address.
+                    </div>
+                  </div>
+      
+                  <div class="mb-3">
+                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                  </div>
+      
+                  <div class="row">
+                    <div class="col-md-5 mb-3">
+                      <label for="country">Country</label>
+                      <select class="custom-select d-block w-100" id="country" required>
+                        <option value="">Choose...</option>
+                        <option value="canada">Canada</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid country.
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="state">Province</label>
+                      <select class="custom-select d-block w-100" id="province" required>
+                        <option value="">Choose...</option>
+                        <option value="Alberta">Alberta</option>
+                        <option value="British Columbia">British Columbia</option>
+                        <option value="Manitoba">Manitoba</option>
+                        <option value="New Brunswick">New Brunswick</option>
+                        <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                        <option value="Nova Scotia">Nova Scotia</option>
+                        <option value="Ontario">Ontario</option>
+                        <option value="Prince Edward Island" >Prince Edward Island</option>
+                        <option value="Quebec">Quebec</option>
+                        <option value="Saskatchewan">Saskatchewan</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please provide a valid state.
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="zip">Postal Code</label>
+                      <input type="text" class="form-control" id="postalCode" placeholder="" required>
+                      <div class="invalid-feedback">
+                        Postal code required.
+                      </div>
+                    </div>
+                  </div>
+      
+                  <hr class="mb-4">
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+                </form>
+              </div>
+      
         <script src="js/add.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
        
         
     </body>
