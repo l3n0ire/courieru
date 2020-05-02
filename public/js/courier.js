@@ -232,7 +232,7 @@ async function getUsers(addresses){
     }))
     output.map(address=>{
       var p = document.createElement("P");
-      p.innerHTML=address.toString()
+      p.innerHTML=address+"<br/>"
       document.getElementById('waypoints').appendChild(p)
 
     })

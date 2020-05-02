@@ -1,22 +1,30 @@
 const userForm = document.getElementById('user-form');
 const username = document.getElementById('username');
+const firstName = document.getElementById('firstName');
+const lastName = document.getElementById('lastName');
 const password = document.getElementById('password');
 const role = document.getElementById('role');
 const address = document.getElementById('address');
-const fullName = document.getElementById('fullName');
+const country = document.getElementById('country');
+const province = document.getElementById('province');
+const postalCode = document.getElementById('postalCode');
 const phonenumber= document.getElementById('phonenumber');
 const email = document.getElementById('email');
 
 
 async function addStore(e){
     e.preventDefault();
+    var roleValue = role.options[role.selectedIndex].text 
+    var addressValue = address.value +" "+province.options[province.selectedIndex].text
+    +" "+ country.options[country.selectedIndex].text +" "+postalCode.value
+    var fullName =firstName.value +" "+lastName.value
     const sendBody = {
         username: username.value,
         password: password.value,
-        role: role.value,
-        address: address.value,
+        role: roleValue,
+        address: addressValue,
         contactInfo:{
-            fullName:fullName.value,
+            fullName:fullName,
             phonenumber:phonenumber.value,
             email:email.value
         }
