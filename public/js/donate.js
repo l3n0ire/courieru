@@ -18,7 +18,7 @@ async function refresh(){
         donationElement.innerHTML = '';
         updateElement.innerHTML = '';
 
-        var date = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        var date = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit', second:'2-digit'});
         var time = document.createTextNode("Updated as of " + date);
         updateElement.appendChild(time);
 
