@@ -86,4 +86,14 @@ body {
   .border-top { border-top: 1px solid #e5e5e5; }
   .border-bottom { border-bottom: 1px solid #e5e5e5; }
 
+  .spacer
+  {
+      height: 48px;
+  }
+
+  .map
+  {
+    height: 80vh;
+    width: 100vw;
+  }
   
