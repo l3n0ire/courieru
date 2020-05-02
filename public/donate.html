@@ -7,9 +7,44 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    </head>
-    <body>
+        <body  style="padding-top: 65px">
+            <header>
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                  <a class="navbar-brand" href="#">CourierU</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Home </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/add.html">Register </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/courier.html">Courier</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/request.html">Request</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/donate.html">Donate </a>
+                      </li>
+                    </ul>
+                </nav>
+              </header>
         <div class="container my-3">
-            <h1 class="display-4 text-center">Donate Items</h1>
+            <section class="jumbotron text-center">
+                <div class="container">
+                  <h1 class="jumbotron-heading">Donors</h1>
+                  <p class="lead text-muted">Donate food and supplies to people affected by COVID-19. </p>
+                  <p>
+                    <a href="#" class="btn btn-primary my-2">Sort by Recent</a>
+                    <a href="#" class="btn btn-secondary my-2">Sort by Urgency</a>
+                  </p>
+                </div>
+              </section>
             <h4>Items users have requested</h4>
             <ul id ='donation'>
 
