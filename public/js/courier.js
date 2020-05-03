@@ -163,7 +163,7 @@ async function getUsers(addresses){
     console.log(filteredData)
     const users = filteredData.map((user,i)=>{
       let icon='car';
-      if (user.role=='recipient')
+      if (user.role=='Recipient')
       icon='shop'
       
         return {
@@ -384,7 +384,8 @@ function getRoutes(){
 }
 getRoutes()
 function updateStatus(id,status){
-  var username = usersArray[id.value].username
+  var username = id.value
+  console.log(username)
   try{
     fetch(`/api/users?username=${username}&status=${status}`,{
       method:'POST',
@@ -404,13 +405,13 @@ function updateStatus(id,status){
 
 function delivered(id){
 
-  updateStatus(id,"delivered")
+  updateStatus(id,"Delivered")
 
 }
 
 function omw(id){
-
-  updateStatus(id,"on my way")
+  
+  updateStatus(id,"On the way")
 }
 
 function createPopUp(currentFeature) {
@@ -423,8 +424,8 @@ function createPopUp(currentFeature) {
   '<p class=\'my-1 text\'>' + currentFeature.properties.email + '</p>'+
     '<p class=\'my-1 text\'>' + currentFeature.properties.address + '</p>'
   if(currentFeature.properties.role=='Recipient'){
-    popuphtml +='<button class=\'btn btn-warning my-1\' value='+currentFeature.properties.index+' onClick=\'omw(this)\'>On My Way </button>'
-    popuphtml +='<button class=\'btn btn-success my-1\' value='+currentFeature.properties.index+' onClick=\'delivered(this)\'>Delivered to Customer </button>'
+    popuphtml +='<button class=\'btn btn-warning my-1\' value='+currentFeature.properties.username+' onClick=\'omw(this)\'>On My Way </button>'
+    popuphtml +='<button class=\'btn btn-success my-1\' value='+currentFeature.properties.username+' onClick=\'delivered(this)\'>Delivered to Customer </button>'
   }
   var popup = new mapboxgl.Popup({ closeOnClick: false })
     .setLngLat(currentFeature.geometry.coordinates)
