@@ -9,6 +9,10 @@ const myRequestsButton =document.getElementById('myRequests')
 async function addRequest(e){
     e.preventDefault();
     try{
+        if(item.value == "" || quantity.value == "" || username.value == "" || password.value == "" || isNaN(quantity.value)) {
+            console.log("invalid entered")
+            return;
+        }
         const sendBody={
             item:item.value,
             quantity:quantity.value
