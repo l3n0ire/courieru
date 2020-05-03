@@ -39,7 +39,14 @@
               <a class="nav-link" href="/donate.html">Donate </a>
             </li> 
             <li class="nav-item">
-              <button id="logout">Log Out</button>
+            <form id="logout-form">
+              <button id="logoutButton" class="btn btn-lg btn-primary btn-block" type="submit" style="display: none">Log Out</button>
+            </form>
+            <script>
+              if(sessionStorage.getItem("username") != null) {
+                document.getElementById('logoutButton').style.display = "initial";
+              }
+            </script>
             </li>
           </ul>
       </nav>
