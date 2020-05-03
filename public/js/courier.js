@@ -1,6 +1,5 @@
-const courier = document.getElementById('courier');
-const courierForm = document.getElementById('courier-form');
-
+const courier = sessionStorage.getItem("courier");
+console.log(courier)
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29saW5jb29sMTAwIiwiYSI6ImNrOWc3cnJicjBqbWQzaG5hejR0YzdqdGoifQ.NMHDHTEqTUaFgpmvvMXl1A';
 var warehouseLocation =[-79.374697,43.7227]
 var map = new mapboxgl.Map({
@@ -274,12 +273,11 @@ async function getUsers(addresses){
 
   
 
-function getRoutes(e){
-    e.preventDefault();
+function getRoutes(){
     var data
     var data2
     try{
-        fetch(`/api/routes?courier=${courier.value}`,{
+        fetch(`/api/routes?courier=${courier}`,{
             method:'GET',
             headers:{
                 'Content-Type':'application/json',
@@ -372,7 +370,7 @@ function getRoutes(e){
 
 
 }
-courierForm.addEventListener('submit',getRoutes);
+getRoutes()
 function updateStatus(id,status){
   var username = usersArray[id.value].username
   try{

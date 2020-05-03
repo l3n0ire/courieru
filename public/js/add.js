@@ -42,7 +42,7 @@ async function addStore(e){
             throw Error('user already exits')
         }
         alert('user added');
-        window.location.href='/index.html';
+        window.location.href='/login.html';
 
     }catch(e){
         alert(err);

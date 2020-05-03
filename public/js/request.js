@@ -1,6 +1,6 @@
 
-const username = document.getElementById('username');
-const password = document.getElementById('password');
+const username = sessionStorage.getItem("username")
+const password = sessionStorage.getItem("password")
 const item = document.getElementById('item');
 const quantity = document.getElementById('quantity');
 const requestForm = document.getElementById('request-form');
@@ -9,7 +9,6 @@ const myRequestsButton =document.getElementById('myRequests')
 async function addRequest(e){
     e.preventDefault();
     try{
-        console.log(sessionStorage.getItem("username"));
         if(item.value == "" || quantity.value == "" || username.value == "" || password.value == "" || isNaN(quantity.value)) {
             console.log("invalid entered")
             return;
@@ -18,7 +17,7 @@ async function addRequest(e){
             item:item.value,
             quantity:quantity.value
         }
-        const res= await fetch(`/api/users?username=${username.value}&password=${password.value}`,{
+        const res= await fetch(`/api/users?username=${username}&password=${password}`,{
             method:'POST',
             headers:{
                 'Content-Type':'application/json',
@@ -38,7 +37,7 @@ async function addRequest(e){
         if(res.status ===400 || res2.status==400){
             throw Error('something went wrong')
         }
-        //alert('request sent');
+        alert('request sent');
         //window.location.href='/index.html';
 
 
@@ -51,8 +50,7 @@ async function addRequest(e){
 }
 async function myRequests(){
     try{
-        console.log(username.value)
-    const res3 = await fetch(`/api/users?name=${username.value}&password=${password.value}`,{
+    const res3 = await fetch(`/api/users?name=${username}&password=${password}`,{
         method:'GET',
         headers:{
             'Content-Type':'application/json',
@@ -107,6 +105,7 @@ async function myRequests(){
             p2.appendChild(text2);
             
             requestElement.appendChild(card_box);
+            
 
 
     })
