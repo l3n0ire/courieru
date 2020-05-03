@@ -326,6 +326,9 @@ function getRoutes(e){
                       'Content-Type':'application/json',
                   },
               }).then(res=>{
+                  alert('user added');
+                  var att = document.createAttribute("disabled")
+                  e.target.setAttributeNode(att)
                   console.log("accepted")
               })
               
@@ -390,11 +393,13 @@ function updateStatus(id,status){
 }
 
 function delivered(id){
+
   updateStatus(id,"delivered")
 
 }
 
 function omw(id){
+
   updateStatus(id,"on my way")
 }
 
@@ -403,13 +408,13 @@ function createPopUp(currentFeature) {
   /** Check if there is already a popup on the map and if so, remove it */
   if (popUps[0]) popUps[0].remove();
   var popuphtml ='<h3>'+currentFeature.properties.name+'</h3>' +
-  '<p>' + currentFeature.properties.role + '</p>'+
-  '<p>' + currentFeature.properties.phonenumber + '</p>'+
-  //'<p>' + currentFeature.properties.email + '</p>'+
-    '<p>' + currentFeature.properties.address + '</p>'
-  if(currentFeature.properties.role=='recipient'){
-    popuphtml +='<button value='+currentFeature.properties.index+' onClick=\'omw(this)\'>On My Way </button>'
-    popuphtml +='<button value='+currentFeature.properties.index+' onClick=\'delivered(this)\'>Delivered to Customer </button>'
+  '<p class=\'my-1 text\'>' + currentFeature.properties.role + '</p>'+
+  '<p class=\'my-1 text\'>' + currentFeature.properties.phonenumber + '</p>'+
+  '<p class=\'my-1 text\'>' + currentFeature.properties.email + '</p>'+
+    '<p class=\'my-1 text\'>' + currentFeature.properties.address + '</p>'
+  if(currentFeature.properties.role=='Recipient'){
+    popuphtml +='<button class=\'btn btn-warning my-1\' value='+currentFeature.properties.index+' onClick=\'omw(this)\'>On My Way </button>'
+    popuphtml +='<button class=\'btn btn-success my-1\' value='+currentFeature.properties.index+' onClick=\'delivered(this)\'>Delivered to Customer </button>'
   }
   var popup = new mapboxgl.Popup({ closeOnClick: false })
     .setLngLat(currentFeature.geometry.coordinates)

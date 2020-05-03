@@ -21,7 +21,7 @@ async function getUsers(){
     usersArray = data.data;
     const users = data.data.map((user,i)=>{
       let icon='car';
-      if (user.role=='recipient')
+      if (user.role=='Recipient')
       icon='shop'
       
         return {
@@ -383,15 +383,15 @@ function createPopUp(currentFeature) {
   /** Check if there is already a popup on the map and if so, remove it */
   if (popUps[0]) popUps[0].remove();
   var popuphtml ='<h3>'+currentFeature.properties.name+'</h3>' +
-  '<p>' + currentFeature.properties.role + '</p>'+
-  '<p>' + currentFeature.properties.phonenumber + '</p>'+
-  '<p>' + currentFeature.properties.email + '</p>'+
-    '<p>' + currentFeature.properties.address + '</p>'
-  if(currentFeature.properties.role=='recipient'){
-    popuphtml +='<button value='+currentFeature.properties.index+' onClick=\'add(this)\'>Add address </button>'
+  '<p class=\'my-1 text\'>' + currentFeature.properties.role + '</p>'+
+  '<p class=\'my-1 text\'>' + currentFeature.properties.phonenumber + '</p>'+
+  '<p class=\'my-1 text\'>' + currentFeature.properties.email + '</p>'+
+    '<p class=\'my-1 text\'>' + currentFeature.properties.address + '</p>'
+  if(currentFeature.properties.role=='Recipient'){
+    popuphtml +='<button class=\'btn btn-success my-1\' value='+currentFeature.properties.index+' onClick=\'add(this)\'>Add address </button>'
   }
   else{
-    popuphtml +='<button value='+currentFeature.properties.index+' onClick=\'selectCourier(this)\'>Select Courier </button>'
+    popuphtml +='<button class=\'btn btn-primary my-1\' value='+currentFeature.properties.index+' onClick=\'selectCourier(this)\'>Select Courier </button>'
 
   }
   var popup = new mapboxgl.Popup({ closeOnClick: false })
