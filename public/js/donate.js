@@ -53,7 +53,10 @@ async function refresh(){
             var btn = document.createElement("BUTTON");
             btn.type = "button";
             btn.className = "btn btn-sm btn-outline-secondary";
-            btn.value = "Donate";
+            btn.id = "btn";
+            
+            $(btn).attr('data-toggle', 'modal');
+            $(btn).attr('data-target', '#donate-modal');
 
             var small = document.createElement("SMALL");
             small.className = "text-muted";
@@ -101,3 +104,5 @@ async function refresh(){
 }
 refresh()
 refreshButton.addEventListener('click',refresh);
+
+
