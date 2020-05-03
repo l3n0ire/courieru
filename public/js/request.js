@@ -38,6 +38,7 @@ async function addRequest(e){
             throw Error('something went wrong')
         }
         alert('request sent');
+        myRequests()
         //window.location.href='/index.html';
 
 
@@ -50,6 +51,7 @@ async function addRequest(e){
 }
 async function myRequests(){
     try{
+        requestElement.innerHTML=''
     const res3 = await fetch(`/api/users?name=${username}&password=${password}`,{
         method:'GET',
         headers:{
@@ -113,5 +115,6 @@ async function myRequests(){
     console.log(err)
 }
 }
+myRequests()
 myRequestsButton.addEventListener('click',myRequests)
 requestForm.addEventListener('submit',addRequest);

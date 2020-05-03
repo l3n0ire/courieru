@@ -55,25 +55,23 @@
               </ul>
           </nav>
         </header>
-        <div id ="map" style="width: 100vw; height:500px; border-radius:5px"></div>
+        <div id ="map" style="width: 100vw; height:80vh; border-radius:5px"></div>
         <div class="container my-3">
             <h1 class="display-4 text-center"><i class="fas fa-map-marker-alt mr-4" ></i>
             Dispatcher Page</h1>
-            <p>Courier Name: colin lin</p>
-            <p>username: colin password: 123456, username: bob password: 654321 (use this for testing)</p>
             <p>To assign a route click on a courier (car icon), then click on the (shop icons) to add addresses to the route</address></p>
            
             
-            <p>Distance <span id='distance'></span></p>
-            <p>Duration: <span id='duration'></span></p>
+            <h4 class='my-3'>Distance: <span id='distance'></span></h4>
+            <h4 class='my-3'>Duration: <span id='duration'></span></h4>
             <div class="accordionContainer">
-              <h1>  Addresses Added </h1>
+              <h1 class='my-3'>  Addresses Added </h1>
               <div class="accordion" id="addresses"></div>
-              <h1>  Stops </h1>
+              <h1 class='my-3'>  Stops </h1>
               <div class="accordion" id="waypoints"></div>
             </div>
-            <p>Courier:<span id='courier'></span></p>
-            <button  class='btn btn-primary' id='assignRoute'>Assign route</button>
+            <h4 class='my-3'>Courier: <span id='courier'></span></h4>
+            <button  class='btn btn-primary my-3' id='assignRoute'>Assign route</button>
 
         </div>
         <script src="js/logout.js"></script>

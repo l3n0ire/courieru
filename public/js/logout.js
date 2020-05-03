@@ -6,6 +6,7 @@ async function logoutSubmit(e) {
     sessionStorage.clear();
     document.getElementById("logoutButton").style.display = "none";
     document.getElementById("loginLink").style.display = "block";
+    window.location.href='/login.html'
 }
 
 logoutForm.addEventListener("submit", logoutSubmit)

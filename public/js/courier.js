@@ -259,8 +259,20 @@ async function getUsers(addresses){
             accordian.appendChild(card)
 
     })
-    document.getElementById('distance').innerHTML=data2.trips[0].distance/1000+"km"
-    document.getElementById('duration').innerHTML=data2.trips[0].duration/60+"minutes"
+    var distance =data2.trips[0].distance/1000
+    distance= distance.toFixed(2)
+    document.getElementById('distance').innerHTML = distance+" km"
+    var duration=data2.trips[0].duration/60
+    duration= duration.toFixed(0)
+    var hours
+    if(duration>=60){
+      hours = duration/60
+      hours= hours.toFixed(0)
+      duration=duration%60
+      document.getElementById('duration').innerHTML=hours+" hours " + duration+" minutes"
+    }
+    else
+      document.getElementById('duration').innerHTML=duration+" minutes"
     var features = output.map((name,i)=>{
       return turf.feature(data2.trips[0].geometry)
     })
@@ -313,7 +325,7 @@ function getRoutes(){
             })
             var acceptButton =document.createElement("BUTTON")
             acceptButton.className="btn btn-success"
-            acceptButton.innerHTML="accept"
+            acceptButton.innerHTML="Accept"
             acceptButton.value=data._id
 
             acceptButton.addEventListener('click',(e)=>{
@@ -324,7 +336,7 @@ function getRoutes(){
                       'Content-Type':'application/json',
                   },
               }).then(res=>{
-                  alert('user added');
+                  alert('accepted');
                   var att = document.createAttribute("disabled")
                   e.target.setAttributeNode(att)
                   console.log("accepted")
