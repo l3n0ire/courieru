@@ -9,7 +9,7 @@ const myRequestsButton =document.getElementById('myRequests')
 async function addRequest(e){
     e.preventDefault();
     try{
-        console.log($.jStorage.get("username"));
+        console.log(sessionStorage.getItem("username"));
         if(item.value == "" || quantity.value == "" || username.value == "" || password.value == "" || isNaN(quantity.value)) {
             console.log("invalid entered")
             return;
