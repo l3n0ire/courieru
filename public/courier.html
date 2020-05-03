@@ -52,14 +52,20 @@
                 <button type='submit' class='btn btn-primary'>Submit</button>
                 <a href="index.html" class='btn btn-secondary'>Back</a>
             </form>
-            <h4>Delivery requests</h4>
-            <div id='routes'></div>
-            <p id='accepted'></p>
             
             <p>Distance <span id='distance'></span></p>
             <p>Duration: <span id='duration'></span></p>
             <p>Waypoints: </p>
             <div id='waypoints'></div>
+
+            <div class="accordionContainer">
+              <h1>  Delivery Requests</h1>
+              <div class="accordion" id="deliveryRequests"></div>
+              <h1>  Route </h1>
+              <div class="accordion" id="route"></div>
+          </div>
+
+           
 
         </div>
         <script src="js/courier.js"></script>

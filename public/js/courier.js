@@ -1,6 +1,5 @@
 const courier = document.getElementById('courier');
 const courierForm = document.getElementById('courier-form');
-const routes = document.getElementById('routes');
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiY29saW5jb29sMTAwIiwiYSI6ImNrOWc3cnJicjBqbWQzaG5hejR0YzdqdGoifQ.NMHDHTEqTUaFgpmvvMXl1A';
 var warehouseLocation =[-79.374697,43.7227]
@@ -230,10 +229,35 @@ async function getUsers(addresses){
 
 
     }))
-    output.map(address=>{
-      var p = document.createElement("P");
-      p.innerHTML=address+"<br/>"
-      document.getElementById('waypoints').appendChild(p)
+    output.map((address,i)=>{
+      var accordian = document.getElementById('route')
+            var card=document.createElement("DIV")
+            card.className="card"
+            var cardHeader=document.createElement("DIV")
+            cardHeader.className="card-header"
+            var h2=document.createElement("H2")
+            h2.className="mb-0"
+            var button=document.createElement("BUTTON")
+            button.className="btn btn-link"
+            button.setAttribute("data-toggle","collapse")
+            button.setAttribute("data-target","#w"+i)
+            button.setAttribute("aria-expanded","true")
+            button.setAttribute("aria-controls","#w"+i)
+            var c1 = document.createElement("DIV")
+            c1.id="w"+i
+            c1.className="collapse show"
+            var cardBody=document.createElement("DIV")
+            cardBody.className="card-body"
+            cardBody.innerHTML=address
+
+            button.innerHTML ="Stop #"+(i+1)
+            h2.appendChild(button)
+            cardHeader.appendChild(h2)
+            cardHeader.appendChild(button)
+            card.appendChild(cardHeader)
+            c1.appendChild(cardBody)
+            card.appendChild(c1)
+            accordian.appendChild(card)
 
     })
     document.getElementById('distance').innerHTML=data2.trips[0].distance/1000+"km"
@@ -265,29 +289,64 @@ function getRoutes(e){
                 data2=data.data
             console.log(data2)
         data2.map((data,i)=>{
-            var div = document.createElement("DIV")
-            var p = document.createElement("P")
-            var button =document.createElement("BUTTON")
-            button.value = data._id
-            button.className = "btn btn-success"
-            button.innerHTML="accept"
-            p.innerHTML=data.addresses
-            button.addEventListener('click',(e)=>{
-                var id=e.target.value
-                fetch(`/api/routes?id=${id}`,{
-                    method:'POST',
-                    headers:{
-                        'Content-Type':'application/json',
-                    },
-                }).then(res=>{
-                    document.getElementById('accepted').innerHTML='accepted'
-                })
-                
+            var accordian = document.getElementById('deliveryRequests')
+            var card=document.createElement("DIV")
+            card.className="card"
+            var cardHeader=document.createElement("DIV")
+            cardHeader.className="card-header"
+            var h2=document.createElement("H2")
+            h2.className="mb-0"
+            var button=document.createElement("BUTTON")
+            button.className="btn btn-link"
+            button.setAttribute("data-toggle","collapse")
+            button.setAttribute("data-target","#e"+data._id)
+            button.setAttribute("aria-expanded","true")
+            button.setAttribute("aria-controls","#e"+data._id)
+            var c1 = document.createElement("DIV")
+            c1.id="e"+data._id
+            c1.className="collapse show"
+            var cardBody=document.createElement("DIV")
+            cardBody.className="card-body"
+            
+            data.addresses.map(address=>{
+              var p =document.createElement("p")
+              p.innerHTML=address
+              cardBody.appendChild(p)
+            })
+            var acceptButton =document.createElement("BUTTON")
+            acceptButton.className="btn btn-success"
+            acceptButton.innerHTML="accept"
+            acceptButton.value=data._id
 
-            },false)
-            div.appendChild(p);
-            div.appendChild(button)
-            routes.appendChild(div)
+            acceptButton.addEventListener('click',(e)=>{
+              var id=e.target.value
+              fetch(`/api/routes?id=${id}`,{
+                  method:'POST',
+                  headers:{
+                      'Content-Type':'application/json',
+                  },
+              }).then(res=>{
+                  console.log("accepted")
+              })
+              
+
+          },false)
+
+            
+            button.innerHTML ="Delivery request #"+(i+1)
+            h2.appendChild(button)
+            cardHeader.appendChild(h2)
+            cardHeader.appendChild(button)
+            card.appendChild(cardHeader)
+            cardBody.appendChild(acceptButton)
+            c1.appendChild(cardBody)
+            card.appendChild(c1)
+            accordian.appendChild(card)
+
+            
+
+            
+            
 
             console.log(data.addresses)
             getUsers(data.addresses);
