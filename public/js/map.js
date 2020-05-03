@@ -78,7 +78,7 @@ async function getUsers(){
       return 0;
 
     })
-    const output = await waypoints.map(async function(way,i){
+    const output = await Promise.all( waypoints.map(async function(way,i){
       let url = "https://api.radar.io/v1/geocode/reverse?coordinates="+way.location[1]+","+way.location[0];
       
       let res = await fetch(url,{headers:{Authorization:"prj_live_pk_bc355842d1d55d195b361380237c58fde8a6ef48"}})
@@ -87,8 +87,41 @@ async function getUsers(){
       return  data.addresses[0].formattedAddress
 
 
+    }))
+    let demo = document.getElementById('waypoints')
+    demo.innerHTML=''
+    console.log("cleared")
+    output.map((address,i)=>{
+      var accordian = document.getElementById('waypoints')
+            var card=document.createElement("DIV")
+            card.className="card"
+            var cardHeader=document.createElement("DIV")
+            cardHeader.className="card-header"
+            var h2=document.createElement("H2")
+            h2.className="mb-0"
+            var button=document.createElement("BUTTON")
+            button.className="btn btn-link"
+            button.setAttribute("data-toggle","collapse")
+            button.setAttribute("data-target","#w"+i)
+            button.setAttribute("aria-expanded","true")
+            button.setAttribute("aria-controls","#w"+i)
+            var c1 = document.createElement("DIV")
+            c1.id="w"+i
+            c1.className="collapse show"
+            var cardBody=document.createElement("DIV")
+            cardBody.className="card-body"
+            cardBody.innerHTML=address
+
+            button.innerHTML ="Stop #"+(i+1)
+            h2.appendChild(button)
+            cardHeader.appendChild(h2)
+            cardHeader.appendChild(button)
+            card.appendChild(cardHeader)
+            c1.appendChild(cardBody)
+            card.appendChild(c1)
+            accordian.appendChild(card)
+
     })
-    console.log(output)
     document.getElementById('distance').innerHTML=data2.trips[0].distance/1000+"km"
     document.getElementById('duration').innerHTML=data2.trips[0].duration/60+"minutes"
     var features = output.map((name,i)=>{
@@ -262,10 +295,38 @@ function add(id){
   
   addresses.push(address)
   locations.push(usersArray[id.value].location.coordinates)
-  var li = document.createElement("LI");
-  var text = document.createTextNode(address);
-  li.appendChild(text);
-  addresssElement.appendChild(li)
+  var clear = document.getElementById('addresses')
+  clear.innerHTML=''
+  addresses.map((address,i)=>{
+            var accordian = document.getElementById('addresses')
+            var card=document.createElement("DIV")
+            card.className="card"
+            var cardHeader=document.createElement("DIV")
+            cardHeader.className="card-header"
+            var h2=document.createElement("H2")
+            h2.className="mb-0"
+            var button=document.createElement("BUTTON")
+            button.className="btn btn-link"
+            button.setAttribute("data-toggle","collapse")
+            button.setAttribute("data-target","#a"+i)
+            button.setAttribute("aria-expanded","true")
+            button.setAttribute("aria-controls","#a"+i)
+            var c1 = document.createElement("DIV")
+            c1.id="a"+i
+            c1.className="collapse show"
+            var cardBody=document.createElement("DIV")
+            cardBody.className="card-body"
+            cardBody.innerHTML=address
+
+            button.innerHTML ="Address #"+(i+1)
+            h2.appendChild(button)
+            cardHeader.appendChild(h2)
+            cardHeader.appendChild(button)
+            card.appendChild(cardHeader)
+            c1.appendChild(cardBody)
+            card.appendChild(c1)
+            accordian.appendChild(card)
+  })
   makeRoute()
 }
 var courier=""

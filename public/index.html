@@ -49,12 +49,15 @@
             <p>username: colin password: 123456, username: bob password: 654321 (use this for testing)</p>
             <p>To assign a route click on a courier (car icon), then click on the (shop icons) to add addresses to the route</address></p>
            
-            <p>waypoints ( see in console)</p>
-            <p id='waypoints'></p>
+            
             <p>Distance <span id='distance'></span></p>
             <p>Duration: <span id='duration'></span></p>
-            <p>Addresses</p>
-            <ul id='addresses'></ul>
+            <div class="accordionContainer">
+              <h1>  Addresses Added </h1>
+              <div class="accordion" id="addresses"></div>
+              <h1>  Stops </h1>
+              <div class="accordion" id="waypoints"></div>
+            </div>
             <p>Courier:<span id='courier'></span></p>
             <button  class='btn btn-primary' id='assignRoute'>Assign route</button>
 
