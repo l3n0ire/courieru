@@ -74,7 +74,8 @@ async function refresh(){
             var text1 = document.createTextNode("requests: " + item.requests);
             var text2 = document.createTextNode("donations: " + item.donations);
             var title_text = document.createTextNode(item.item);
-            var time_since = document.createTextNode("5 min");
+            var date = new Date(item.date)
+            var time_since = document.createTextNode("Last requested on " + date.toLocaleDateString('en-US'));
             var btn_text = document.createTextNode("Donate");
             small.appendChild(time_since);
             header.appendChild(title_text);
