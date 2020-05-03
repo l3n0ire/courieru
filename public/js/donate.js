@@ -1,6 +1,10 @@
 const refreshButton = document.getElementById('refresh');
 const donationElement = document.getElementById('row')
 const updateElement = document.getElementById('update');
+const urgent = document.getElementById('urgent');
+const recent = document.getElementById('recent');
+var sort_type = 'recent';
+
 async function refresh(){
     try{
         
@@ -22,6 +26,11 @@ async function refresh(){
         var time = document.createTextNode("Updated as of " + date);
         updateElement.appendChild(time);
 
+        if(sort_type === 'recent')
+        {
+        } else {
+            
+        }
        
 
         data2.data.map(item=>{
@@ -106,4 +115,18 @@ async function refresh(){
 refresh()
 refreshButton.addEventListener('click',refresh);
 
+function rsort()
+{
+    sort_type = "recent";
+    recent.className = "btn btn-primary my-2";
+    urgent.className = "btn btn-secondary my-2";
+}
+function usort()
+{
+    sort_type = "urgent";
+    urgent.className = "btn btn-primary my-2";
+    recent.className = "btn btn-secondary my-2";
+}
 
+recent.addEventListener('click', rsort);
+urgent.addEventListener('click', usort);
