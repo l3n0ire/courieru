@@ -56,7 +56,8 @@ exports.addItem = async (req,res,next)=>{
             item = await Item.create({
                 item:req.body.item,
                 requests:req.body.quantity,
-                donations:0
+                donations:0,
+                date:Date.now()
 
             });
         }
