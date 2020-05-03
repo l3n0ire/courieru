@@ -34,6 +34,16 @@
                 <li class="nav-item">
                   <a class="nav-link" href="/login.html">Login </a>
                 </li>
+                <li class="nav-item">
+                  <form id="logout-form">
+                    <button id="logoutButton" class="btn btn-dark btn-block" type="submit" style="display: none">Log Out</button>
+                  </form>
+                  <script>
+                    if(sessionStorage.getItem("username") != null) {
+                      document.getElementById('logoutButton').style.display = "initial";
+                    }
+                  </script>
+                  </li>
               </ul>
           </nav>
         </header>
