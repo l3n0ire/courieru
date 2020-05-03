@@ -126,7 +126,7 @@ body {
   color: rgba(255, 255, 255, .5);
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 350px) {
   h1{
     font-size: 25px;
   }
